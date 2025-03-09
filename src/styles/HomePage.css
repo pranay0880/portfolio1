@@ -1,0 +1,192 @@
+.particle-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  /* background-color: #ffffff; */
+  overflow: hidden;
+}
+
+.particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 400px;
+}
+
+.particle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: transparent;
+  animation: floatAnimation 5s infinite ease-in-out;
+  opacity: 0.8;
+}
+
+.particle:nth-child(1) {
+  background-color: #ff926b;
+  width: 30px;
+  height: 30px;
+  left: 10%;
+  border-radius: 50%;
+  animation-duration: 6s;
+}
+.particle:nth-child(2) {
+  background-color: #87ddfe;
+  width: 17px;
+  height: 17px;
+  left: 25%;
+  border-radius: 50%;
+  animation-duration: 10s;
+}
+.particle:nth-child(3) {
+  background-color: #acaaff;
+  width: 16px;
+  height: 16px;
+  left: 40%;
+  clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+  animation-duration: 8s;
+}
+.particle:nth-child(4) {
+  background-color: #1bffc2;
+  width: 19px;
+  height: 19px;
+  left: 55%;
+  clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+  animation-duration: 12s;
+}
+.particle:nth-child(5) {
+  background-color: #f9a5fe;
+  width: 8px;
+  height: 8px;
+  left: 70%;
+  animation-duration: 5s;
+}
+.particle:nth-child(6) {
+  background-color: #ff926b;
+  width: 40px;
+  height: 40px;
+  left: 85%;
+  animation-duration: 10s;
+}
+.particle:nth-child(7) {
+  background-color: #87ddfe;
+  width: 12px;
+  height: 12px;
+  left: 20%;
+  animation-duration: 12s;
+}
+.particle:nth-child(8) {
+  background-color: #acaaff;
+  width: 8px;
+  height: 8px;
+  left: 50%;
+  animation-duration: 8s;
+}
+.particle:nth-child(9) {
+  background-color: #1bffc2;
+  width: 11px;
+  height: 11px;
+  left: 65%;
+  border-radius: 50%;
+  animation-duration: 6s;
+}
+.particle:nth-child(10) {
+  background-color: #f9a5fe;
+  width: 9px;
+  height: 9px;
+  left: 80%;
+  border-radius: 50%;
+  animation-duration: 17s;
+}
+.particle:nth-child(11) {
+  background-color: grey;
+  width: 90px;
+  height: 90px;
+  left: 80%;
+  border-radius: 50%;
+  animation-duration: 5s;
+}
+.particle:nth-child(12) {
+  background-color: #f9a5fe;
+  width: 20px;
+  height: 20px;
+  left: 30%;
+  border-radius: 50%;
+  animation-duration: 15s;
+}
+.particle:nth-child(13) {
+  background-color: #1bffc2;
+  width: 20px;
+  height: 20px;
+  left: 45%;
+  border-radius: 50%;
+  animation-duration: 15s;
+}
+
+/* Particle floating animation */
+@keyframes floatAnimation {
+  0% {
+    transform: translateY(100vh) scale(1);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(50vh) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) scale(0.8);
+    opacity: 0;
+  }
+}
+.borderAnimation {
+  position: absolute;
+  border-radius: 12px solid red;
+}
+
+.rounded-image {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: #89796d;
+}
+
+.image-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 310px;
+  height: 310px;
+}
+
+.image-container::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  padding: 0px;
+  background: conic-gradient(
+    from 0deg,
+    #ff926b,
+    #87ddfe,
+    #acaaff,
+    #1bffc2,
+    #f9a5fe,
+    #ff926b
+  );
+  animation: rotateBorder 4s linear infinite;
+  -webkit-mask: radial-gradient(circle, transparent 55%, black 56%);
+  mask: radial-gradient(circle, transparent 55%, black 56%);
+}
+
+@keyframes rotateBorder {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

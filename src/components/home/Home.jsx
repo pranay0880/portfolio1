@@ -1,4 +1,4 @@
-import { Box, Container, Grid } from "@mui/material";
+import { Box, Container, Grid2 as Grid } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import Footer from "../footer/Footer";
 import Navbar from "../header/Navbar";
@@ -69,8 +69,7 @@ const Home = () => {
             id={id}
             key={id}
             style={{
-              minHeight: "100vh",
-              paddingTop: "60px",
+              minHeight: "50vh",
             }}
           >
             <Component />

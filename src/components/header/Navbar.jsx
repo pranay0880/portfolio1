@@ -1,6 +1,14 @@
-import { Grid, Menu, MenuItem, Typography } from "@mui/material";
+import {
+  Grid2 as Grid,
+  IconButton,
+  Menu,
+  MenuItem,
+  Typography,
+} from "@mui/material";
 import React, { useState } from "react";
 import logo from "../../assets/images/logo.png";
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
 
 const Navbar = ({ sections, activeTab, onTabClick }) => {
   const [openMenu, setOpenMenu] = useState(null);
@@ -22,8 +30,9 @@ const Navbar = ({ sections, activeTab, onTabClick }) => {
         justifyContent: "space-between",
         alignItems: "center",
         padding: "12px 24px",
-        backgroundColor: "#89796d",
+        backgroundColor: "#008AD8",
         color: "whitesmoke",
+        width: "100%",
         maxWidth: "xl",
         position: "fixed",
         zIndex: "1000",
@@ -31,7 +40,7 @@ const Navbar = ({ sections, activeTab, onTabClick }) => {
     >
       <Grid
         item
-        sx={{ display: "flex", cursor: "pointer" }}
+        sx={{ display: "flex", cursor: "pointer", alignItems: "center" }}
         onClick={() => onTabClick("home")}
       >
         <img
@@ -39,24 +48,41 @@ const Navbar = ({ sections, activeTab, onTabClick }) => {
           alt="logo"
           style={{ height: "20px", marginRight: "4px" }}
         />
-        <Typography>Pradeep</Typography>
+        <Typography
+          variant="h6"
+          sx={{ fontFamily: "monospace", fontWeight: "bold" }}
+        >
+          Pradeep
+        </Typography>
       </Grid>
       <Grid
         item
         sx={{
           display: { md: "flex", sm: "none", xs: "none" },
           alignItems: "center",
-          gap: "12px",
+          gap: "32px",
         }}
       >
         {sections.map(({ id, label }) => (
           <Typography
+            variant="body1"
             key={id}
             onClick={() => onTabClick(id)}
             sx={{
               cursor: "pointer",
               fontWeight: activeTab === id ? "bold" : "normal",
-              textDecoration: activeTab === id ? "underline" : "none",
+              position: "relative",
+              display: "inline-block",
+              "&::after": {
+                content: "''",
+                position: "absolute",
+                left: 0,
+                bottom: -2,
+                width: activeTab === id ? "100%" : "0%",
+                height: "2px",
+                backgroundColor: "whitesmoke",
+                transition: "width 0.3s ease-in-out",
+              },
             }}
           >
             {label}
@@ -72,7 +98,10 @@ const Navbar = ({ sections, activeTab, onTabClick }) => {
           gap: "12px",
         }}
       >
-        <Typography onClick={handleOpenMenu}>Menu</Typography>
+        <IconButton onClick={handleOpenMenu}>
+          {!open && <MenuIcon sx={{ color: "whitesmoke" }} />}
+          {open && <CloseIcon sx={{ color: "whitesmoke" }} />}
+        </IconButton>
         <Menu open={open} anchorEl={openMenu} onClose={handleCloseMenu}>
           {sections.map(({ id, label }) => (
             <MenuItem
