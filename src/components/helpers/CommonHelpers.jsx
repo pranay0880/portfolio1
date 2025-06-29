@@ -1,5 +1,48 @@
 import AapomrLogo from "../../assets/images/aapmorLogo.png";
 import AapomrScreenShot from "../../assets/images/AapmorScreenshot.png";
+import ReactJS from "../../assets/images/ReactJSLogo.png";
+import HTML from "../../assets/images/HTMLLogo.png";
+import CSS from "../../assets/images/CSSLogo.png";
+import JavaScript from "../../assets/images/JavascriptLogo.png";
+import Bootstrap from "../../assets/images/BootstrapLogo.png";
+import MaterialUI from "../../assets/images/MaterialUILogo.png";
+import Python from "../../assets/images/PythonLogo.png";
+import Express from "../../assets/images/ExpressJsLogo.png";
+import NodeJs from "../../assets/images/NodeJsLogo.png";
+import SQLite from "../../assets/images/SQLiteLogo.jpeg";
+import MongoDB from "../../assets/images/MongoDBLogo.png";
+import PostgreSQL from "../../assets/images/PostgreSQLLogo.jpeg";
+import Git from "../../assets/images/GithubLogo.png";
+import Jira from "../../assets/images/JiraLogo.jpeg";
+import Bitbucket from "../../assets/images/BitbucketLogo.png";
+import Tailwind from "../../assets/images/tailwind.png";
+
+export const techData = {
+  frontend: [
+    { name: "ReactJS", img: ReactJS },
+    { name: "HTML", img: HTML },
+    { name: "CSS", img: CSS },
+    { name: "JavaScript", img: JavaScript },
+    { name: "Bootstrap", img: Bootstrap },
+    { name: "Material UI", img: MaterialUI },
+    { name: "Tailwind CSS", img: Tailwind },
+  ],
+  backend: [
+    { name: "Python", img: Python },
+    { name: "Express", img: Express },
+    { name: "Node.js", img: NodeJs },
+  ],
+  database: [
+    { name: "SQLite", img: SQLite },
+    { name: "MongoDB", img: MongoDB },
+    { name: "PostgreSQL", img: PostgreSQL },
+  ],
+  others: [
+    { name: "Github", img: Git },
+    { name: "Jira", img: Jira },
+    { name: "Bitbucket", img: Bitbucket },
+  ],
+};
 
 export const timelineData = [
   {

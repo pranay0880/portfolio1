@@ -1,226 +1,205 @@
 import {
-  Grid2 as Grid,
-  ToggleButton,
-  ToggleButtonGroup,
   Typography,
   Box,
+  List,
+  ListItem,
+  ListItemText,
+  Grid,
 } from "@mui/material";
-import React, { useState } from "react";
-import ReactJS from "../../assets/images/ReactJSLogo.png";
-import HTML from "../../assets/images/HTMLLogo.png";
-import CSS from "../../assets/images/CSSLogo.png";
-import JavaScript from "../../assets/images/JavascriptLogo.png";
-import Bootstrap from "../../assets/images/BootstrapLogo.png";
-import MaterialUI from "../../assets/images/MaterialUILogo.png";
-import Python from "../../assets/images/PythonLogo.png";
-import Express from "../../assets/images/ExpressJsLogo.png";
-import NodeJs from "../../assets/images/NodeJsLogo.png";
-import SQLite from "../../assets/images/SQLiteLogo.jpeg";
-import MongoDB from "../../assets/images/MongoDBLogo.png";
-import PostgreSQL from "../../assets/images/PostgreSQLLogo.jpeg";
-import Git from "../../assets/images/GithubLogo.png";
-import Jira from "../../assets/images/JiraLogo.jpeg";
-import Bitbucket from "../../assets/images/BitbucketLogo.png";
+import React from "react";
+import { timelineData } from "../helpers/CommonHelpers";
+import "../../styles/ProjectContent.css";
 
-const techData = {
-  frontend: [
-    { name: "ReactJS", img: ReactJS },
-    { name: "HTML", img: HTML },
-    { name: "CSS", img: CSS },
-    { name: "JavaScript", img: JavaScript },
-    { name: "Bootstrap", img: Bootstrap },
-    { name: "Material UI", img: MaterialUI },
-  ],
-  backend: [
-    { name: "Python", img: Python },
-    { name: "Express", img: Express },
-    { name: "Node.js", img: NodeJs },
-  ],
-  database: [
-    { name: "SQLite", img: SQLite },
-    { name: "MongoDB", img: MongoDB },
-    { name: "PostgreSQL", img: PostgreSQL },
-  ],
-  others: [
-    { name: "Github", img: Git },
-    { name: "Jira", img: Jira },
-    { name: "Bitbucket", img: Bitbucket },
-  ],
-};
+const skills = [
+  "🎨 Designing responsive and accessible web interfaces.",
+  "🔧 Building scalable backend APIs and integrating databases.",
+  "🔁 Creating full-stack solutions using modern tech stacks (MERN, etc.).",
+  "🚀  Optimizing performance and user experience.",
+  "🔍 Write clean, maintainable code with an eye for detail.",
+];
 
 const AboutContent = () => {
-  const [alignment, setAlignment] = useState("frontend");
-
-  const handleChange = (event, newAlignment) => {
-    console.log(newAlignment, "ppp");
-    if (newAlignment !== null) {
-      setAlignment(newAlignment);
-    }
-  };
-
   return (
-    <Grid
+    <Box
       sx={{
-        padding: "40px",
+        padding: {
+          lg: "12px 80px",
+          md: "40px 40px",
+          sm: "40px 20px",
+          xs: "72px 20px",
+        },
       }}
     >
       <Typography
         gutterBottom
         variant="h3"
-        color="#008AD8"
-        fontWeight="bold"
-        marginBottom={6}
+        sx={{
+          fontWeight: "500",
+          fontSize: { lg: "48px", md: "40px", sm: "32px", xs: "30px" },
+        }}
+        color={(theme) => theme.palette.primary.main}
+        marginBottom={3}
       >
         About me:
       </Typography>
-      <Typography gutterBottom variant="h6">
-        Hi, my name is Pradeep Dasari. Iam a Full Stack Developer, UI designer.
-        I have honored my skills in web dvelpoment and advanced. Iam skilled in
-        designing and implementing full-stack solutions for responsive,
-        high-performance applications.
+      <Typography
+        gutterBottom
+        variant="h5"
+        sx={{ fontSize: { lg: "30px", md: "28px", sm: "20px", xs: "20px" } }}
+      >
+        Hi, I’m Pradeep Dasari — a Full Stack Developer and UI Designer with a
+        keen eye for clean design and smooth user experiences.
       </Typography>
       <Typography
         gutterBottom
-        variant="h6"
+        variant="h5"
         sx={{
-          display: "flex",
-          alignItems: "center",
+          color: (theme) => theme.palette.text.secondary,
+          mb: 2,
+          fontSize: { lg: "30px", md: "28px", sm: "20px", xs: "20px" },
         }}
       >
-        <span
-          style={{
-            color: "#008AD8",
-            fontSize: "40px",
-            fontWeight: "bold",
-            paddingRight: "8px",
-          }}
-        >
-          1+
-        </span>
-        years of experience. Specialised in building web apps, while ensuring a
-        seamless experience to the endusers.
-      </Typography>
-      <Typography
-        gutterBottom
-        variant="h4"
-        color="#008AD8"
-        fontWeight="bold"
-        marginTop={4}
-      >
-        Skills:
-      </Typography>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <ToggleButtonGroup
-          color="primary"
-          value={alignment}
-          exclusive
-          onChange={handleChange}
-          aria-label="Platform"
-          sx={{
-            borderRadius: "30px",
-            backgroundColor: "white",
-            overflow: "hidden",
-            boxShadow: "2px 2px 4px 3px #e0e0e0",
-            padding: "4px",
-            "& .MuiToggleButtonGroup-grouped": {
-              borderRadius: "25px !important",
-            },
-            gap: "20px",
-          }}
-        >
-          <ToggleButton
-            value="frontend"
-            sx={{
-              border: "0px",
-              "&.Mui-selected": {
-                backgroundColor: "#008AD8",
-                color: "white",
-                "&:hover": { backgroundColor: "#008AD890" },
-                boxShadow: "2px 2px 4px #e0e0e0",
-                fontWeight: "bold",
-              },
-            }}
-          >
-            Front-End
-          </ToggleButton>
-          <ToggleButton
-            value="backend"
-            sx={{
-              border: "0px",
-              "&.Mui-selected": {
-                backgroundColor: "#008AD8",
-                color: "white",
-                "&:hover": { backgroundColor: "#008AD890" },
-                boxShadow: "2px 2px 4px #e0e0e0",
-                fontWeight: "bold",
-              },
-            }}
-          >
-            Backend
-          </ToggleButton>
-          <ToggleButton
-            value="database"
-            sx={{
-              border: "0px",
-              "&.Mui-selected": {
-                backgroundColor: "#008AD8",
-                color: "white",
-                "&:hover": { backgroundColor: "#008AD890" },
-                boxShadow: "2px 2px 4px #e0e0e0",
-                fontWeight: "bold",
-              },
-            }}
-          >
-            Database
-          </ToggleButton>
-          <ToggleButton
-            value="others"
-            sx={{
-              border: "0px",
-              "&.Mui-selected": {
-                backgroundColor: "#008AD8",
-                color: "white",
-                "&:hover": { backgroundColor: "#008AD890" },
-                boxShadow: "2px 2px 4px #e0e0e0",
-                fontWeight: "bold",
-              },
-            }}
-          >
-            Others
-          </ToggleButton>
-        </ToggleButtonGroup>
+        Over the past{" "}
         <Box
+          component="span"
           sx={{
-            marginTop: "50px",
-            display: "flex",
-            flexWrap: "wrap",
-            gap: "40px",
+            color: (theme) => theme.palette.primary.main,
+            fontWeight: "bold",
+            paddingRight: "4px",
           }}
         >
-          {techData[alignment].map((tech) => (
-            <div key={tech.name} style={{ textAlign: "center" }}>
-              <img
-                src={tech.img}
-                alt={tech.name}
-                style={{
-                  width: "100px",
-                  height: "100px",
-                  objectFit: "contain",
+          2
+        </Box>
+        years, I’ve built and contributed to a range of web applications that
+        balance elegant front-end design. I'm passionate about creating seamless
+        user interfaces, solving complex problems, and continuously learning new
+        technologies.
+      </Typography>
+      <div>
+        <Typography
+          sx={{ fontSize: { lg: "30px", md: "28px", sm: "20px", xs: "20px" } }}
+          variant="h5"
+        >
+          What I Do Best 🧑‍💻:
+        </Typography>
+        <List sx={{ mb: 2 }}>
+          {skills.map((skill, index) => (
+            <ListItem key={index}>
+              <ListItemText
+                primary={skill}
+                slotProps={{
+                  primary: {
+                    sx: {
+                      fontSize: { lg: "18px", md: "16px" },
+                      lineHeight: "1",
+                    },
+                  },
                 }}
               />
-              <p style={{ marginTop: "10px", fontSize: "14px" }}>{tech.name}</p>
-            </div>
+            </ListItem>
           ))}
-        </Box>
-      </Box>
-    </Grid>
+        </List>
+      </div>
+      <Typography
+        variant="h5"
+        sx={{
+          color: (theme) => theme.palette.text.secondary,
+          fontSize: { lg: "30px", md: "28px", sm: "20px", xs: "20px" },
+        }}
+      >
+        My approach combines creativity with technical precision to deliver
+        results that are both functional and beautiful. Whether I’m coding a
+        dynamic interface, debugging a server issue, or sketching wireframes, I
+        enjoy bringing digital ideas to life.
+      </Typography>
+      <Typography
+        variant="h5"
+        sx={{
+          mt: 2,
+          color: (theme) => theme.palette.text.secondary,
+          fontSize: { lg: "30px", md: "28px", sm: "20px", xs: "20px" },
+        }}
+      >
+        Always curious🤔, Always building✍️.
+      </Typography>
+      <Typography
+        gutterBottom
+        variant="h5"
+        sx={{
+          mt: 3,
+          color: (theme) => theme.palette.text.secondary,
+          fontSize: { lg: "30px", md: "28px", sm: "20px", xs: "20px" },
+        }}
+      >
+        Let’s collaborate and create impactful web experiences.
+      </Typography>
+      <Grid
+        container
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          flexWrap: "wrap",
+        }}
+      >
+        <Grid
+          item
+          size={{ xs: 12, md: 7 }}
+          sx={{ padding: { lg: "40px", md: "30px", sm: "10px", xs: "0px" } }}
+        >
+          <Typography
+            variant="h4"
+            gutterBottom
+            sx={{
+              fontSize: { lg: "48px", md: "40px", sm: "32px", xs: "30px" },
+            }}
+          >
+            Career Experience
+          </Typography>
+          {timelineData.map((item, index) => (
+            <Box className="timeline-item" key={index}>
+              <div className="timeline-dot">
+                <img src={item.image} alt="icon" />
+              </div>
+              <Box
+                className="timeline-content"
+                sx={{
+                  backgroundColor: (theme) => theme.palette.background.paper,
+                }}
+              >
+                <h1 className="timeline-date">{item.date}</h1>
+                <h3 className="timeline-position">{item.title}</h3>
+                <h4 className="timeline-company">{item.company}</h4>
+                <ul>
+                  {item.description.map((desc, i) => (
+                    <li key={i}>{desc}</li>
+                  ))}
+                </ul>
+              </Box>
+            </Box>
+          ))}
+        </Grid>
+        <Grid
+          item
+          size={{ xs: 12, md: 5 }}
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <div className="pyramid-loader">
+            <div className="wrapper">
+              <span className="side side1" />
+              <span className="side side2" />
+              <span className="side side3" />
+              <span className="side side4" />
+              <span className="shadow" />
+            </div>
+          </div>
+        </Grid>
+      </Grid>
+    </Box>
   );
 };
 

@@ -1,7 +1,15 @@
-import { Box, Button, Paper, TextField, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Grid,
+  IconButton,
+  TextField,
+  Typography,
+} from "@mui/material";
 import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 import "../../styles/Buttons.css";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 const ContactContent = () => {
   const [formData, setFormData] = useState({
@@ -45,85 +53,177 @@ const ContactContent = () => {
   };
 
   return (
-    <Box sx={{ padding: "40px" }}>
-      <Typography gutterBottom variant="h4" fontWeight={"bold"} color="#008AD8">
+    <Box
+      sx={{
+        padding: {
+          lg: "20px 80px",
+          md: "20px 40px",
+          sm: "20px 20px",
+          xs: "20px 20px",
+        },
+      }}
+    >
+      <Typography gutterBottom variant="h4" fontWeight={"500"}>
         Got Ideas? lets work together
       </Typography>
-      <Box
+      <Typography
+        variant="h6"
+        color={(theme) => theme.palette.text.secondary}
+        sx={{ textWrap: "balance" }}
+        gutterBottom
+      >
+        "I’m always open to exciting opportunities, new projects, or just a good
+        conversation. My inbox is always open — whether you’ve got a question,
+        an idea, or just want to say hey, feel free to reach out. I’ll do my
+        best to get back to you!"
+      </Typography>
+      <Grid
+        container
         sx={{
           display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          padding: "20px",
+          flexWrap: "wrap",
         }}
       >
-        <form
-          onSubmit={handleSubmit}
-          style={{
-            width: "50vw",
-          }}
+        <Grid
+          item
+          size={{ xs: 12, md: 4 }}
+          sx={{ padding: "20px", width: "100%" }}
         >
-          <Paper elevation={3} sx={{ padding: "32px", gap: "20px" }}>
-            <TextField
-              name="name"
-              label="Name"
-              variant="outlined"
-              required
-              fullWidth
-              value={formData.name}
-              onChange={handleInputChange}
-              sx={{ marginBottom: "12px" }}
+          <Box
+            sx={{
+              padding: "10px",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              marginBottom: "20px",
+              border: (theme) => `1px solid ${theme.palette.background.paper}`,
+              borderRadius: "4px",
+            }}
+          >
+            <Box>
+              <Typography variant="body1">You can Email me here</Typography>
+              <Typography
+                variant="body2"
+                sx={{ color: (theme) => theme.palette.text.secondary }}
+              >
+                pranay0880@gmail.com
+              </Typography>
+            </Box>
+            <a href="mailto:pranay0880@gmail.com" style={{ color: "inherit" }}>
+              <IconButton>
+                <ArrowForwardIcon />
+              </IconButton>
+            </a>
+          </Box>
+          <Box
+            sx={{
+              padding: "12px",
+              height: "300px",
+              borderRadius: "4px",
+              border: (theme) => `1px solid ${theme.palette.background.paper}`,
+            }}
+          >
+            <iframe
+              title="Google Map"
+              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d30448.647386733144!2d78.37325717073195!3d17.455840476139553!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1751136392021!5m2!1sen!2sin"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
             />
-
-            <TextField
-              name="email"
-              label="Email"
-              variant="outlined"
-              required
-              fullWidth
-              value={formData.email}
-              onChange={handleInputChange}
-              sx={{ marginBottom: "12px" }}
-            />
-
-            <TextField
-              name="subject"
-              label="Subject"
-              variant="outlined"
-              required
-              fullWidth
-              value={formData.subject}
-              onChange={handleInputChange}
-              sx={{ marginBottom: "12px" }}
-            />
-
-            <TextField
-              name="message"
-              label="Message"
-              variant="outlined"
-              required
-              multiline
-              fullWidth
-              value={formData.message}
-              onChange={handleInputChange}
-              sx={{ marginBottom: "12px" }}
-            />
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "flex-start",
-                marginTop: "16px",
+          </Box>
+        </Grid>
+        <Grid item size={{ xs: 12, md: 8 }} sx={{ width: "100%" }}>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              padding: "20px",
+            }}
+          >
+            <form
+              onSubmit={handleSubmit}
+              style={{
+                width: { xs: "100vw", lg: "50vw" },
               }}
             >
-              <Button className="bt" type="submit" variant="contained">
-                <span className="msg"></span>
-                Submit
-              </Button>
-            </Box>
-          </Paper>
-        </form>
-      </Box>
+              <Box sx={{ gap: "20px" }}>
+                <TextField
+                  name="name"
+                  label="Name"
+                  variant="outlined"
+                  required
+                  fullWidth
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  sx={{ marginBottom: "12px" }}
+                />
+
+                <TextField
+                  name="email"
+                  label="Email"
+                  variant="outlined"
+                  required
+                  fullWidth
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  sx={{ marginBottom: "12px" }}
+                />
+
+                <TextField
+                  name="subject"
+                  label="Subject"
+                  variant="outlined"
+                  required
+                  fullWidth
+                  value={formData.subject}
+                  onChange={handleInputChange}
+                  sx={{ marginBottom: "12px" }}
+                />
+
+                <TextField
+                  name="message"
+                  label="Message"
+                  variant="outlined"
+                  required
+                  multiline
+                  fullWidth
+                  minRows={3}
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  sx={{ marginBottom: "12px" }}
+                />
+
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "flex-end",
+                    marginTop: "16px",
+                  }}
+                >
+                  <Button
+                    className="bt"
+                    type="submit"
+                    variant="contained"
+                    disabled={
+                      formData.name === "" ||
+                      formData.email === "" ||
+                      formData.subject === "" ||
+                      formData.message === ""
+                    }
+                  >
+                    <span className="msg"></span>
+                    Submit
+                  </Button>
+                </Box>
+              </Box>
+            </form>
+          </Box>
+        </Grid>
+      </Grid>
     </Box>
   );
 };

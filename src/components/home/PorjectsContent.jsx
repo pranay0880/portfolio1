@@ -1,74 +1,281 @@
-import { Grid2 as Grid, Typography, Box, Paper, Button } from "@mui/material";
-import React from "react";
+import {
+  Typography,
+  Box,
+  ToggleButtonGroup,
+  ToggleButton,
+  Grid,
+  IconButton,
+} from "@mui/material";
+import React, { useState } from "react";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import "../../styles/ProjectContent.css";
-import { projects, timelineData } from "../helpers/CommonHelpers";
+import { projects, techData } from "../helpers/CommonHelpers";
 
 const PorjectsContent = () => {
-  return (
-    <Grid>
-      <div className="timeline">
-        <h2 className="timeline-title">Career History</h2>
-        {timelineData.map((item, index) => (
-          <div className="timeline-item" key={index}>
-            <div className="timeline-dot">
-              <img src={item.image} alt="icon" />
-            </div>
-            <div className="timeline-content">
-              <p className="timeline-date">{item.date}</p>
-              <h3 className="timeline-position">{item.title}</h3>
-              <h4 className="timeline-company">{item.company}</h4>
-              <ul>
-                {item.description.map((desc, i) => (
-                  <li key={i}>{desc}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        ))}
-      </div>
+  const [alignment, setAlignment] = useState("frontend");
 
-      <Grid
+  const handleChange = (event, newAlignment) => {
+    if (newAlignment !== null) {
+      setAlignment(newAlignment);
+    }
+  };
+  return (
+    <Box
+      sx={{
+        padding: {
+          lg: "12px 80px",
+          md: "40px 40px",
+          sm: "40px 20px",
+          xs: "72px 20px",
+        },
+      }}
+    >
+      <Typography
+        gutterBottom
+        variant="h4"
+        color={(theme) => theme.palette.primary.main}
+        fontWeight="500"
+        marginTop={6}
+        sx={{ fontSize: { lg: "48px", md: "40px", sm: "32px", xs: "30px" } }}
+      >
+        Skills:
+      </Typography>
+      <Box
         sx={{
-          margin: "40px",
           display: "flex",
           flexDirection: "column",
+          justifyContent: "center",
           alignItems: "center",
+        }}
+      >
+        <ToggleButtonGroup
+          color="primary"
+          value={alignment}
+          exclusive
+          onChange={handleChange}
+          aria-label="Platform"
+          sx={{
+            backgroundColor: (theme) => theme.palette.background.paper,
+            display: "flex",
+            overflow: "hidden",
+            boxShadow: `2px 2px 4px 3px ${(theme) =>
+              theme.palette.background.default}`,
+            padding: "6px",
+            "& .MuiToggleButtonGroup-grouped": {
+              borderRadius: "4px !important",
+            },
+            gap: { lg: "20px", md: "16px", sm: "12px", xs: "8px" },
+            height: "48px",
+          }}
+        >
+          <ToggleButton
+            value="frontend"
+            sx={{
+              border: "0px",
+              fontSize: { lg: "24px", md: "20px", sm: "16px", xs: "10px" },
+              textTransform: "none",
+              "&.Mui-selected": {
+                backgroundColor: (theme) => theme.palette.primary.main,
+                color: "white",
+                "&:hover": {
+                  backgroundColor: (theme) => theme.palette.primary.main,
+                },
+                fontWeight: "bold",
+                padding: {
+                  xs: "4px",
+                  sm: "4px 8px",
+                  md: "4px 12px",
+                  lg: "4px 16px",
+                },
+              },
+            }}
+          >
+            Front-End
+          </ToggleButton>
+          <ToggleButton
+            value="backend"
+            sx={{
+              border: "0px",
+              fontSize: { lg: "24px", md: "20px", sm: "16px", xs: "10px" },
+              textTransform: "none",
+              "&.Mui-selected": {
+                backgroundColor: (theme) => theme.palette.primary.main,
+                color: "white",
+                "&:hover": {
+                  backgroundColor: (theme) => theme.palette.primary.main,
+                },
+                boxShadow: "2px 2px 4px #e0e0e0",
+                fontWeight: "bold",
+                padding: {
+                  xs: "4px",
+                  sm: "4px 8px",
+                  md: "4px 12px",
+                  lg: "4px 16px",
+                },
+              },
+            }}
+          >
+            Backend
+          </ToggleButton>
+          <ToggleButton
+            value="database"
+            sx={{
+              border: "0px",
+              fontSize: { lg: "24px", md: "20px", sm: "16px", xs: "10px" },
+              textTransform: "none",
+              "&.Mui-selected": {
+                backgroundColor: (theme) => theme.palette.primary.main,
+                color: "white",
+                "&:hover": {
+                  backgroundColor: (theme) => theme.palette.primary.main,
+                },
+                boxShadow: "2px 2px 4px #e0e0e0",
+                fontWeight: "bold",
+                padding: {
+                  xs: "4px",
+                  sm: "4px 8px",
+                  md: "4px 12px",
+                  lg: "4px 16px",
+                },
+              },
+            }}
+          >
+            Database
+          </ToggleButton>
+          <ToggleButton
+            value="others"
+            sx={{
+              border: "0px",
+              fontSize: { lg: "24px", md: "20px", sm: "16px", xs: "10px" },
+              textTransform: "none",
+              "&.Mui-selected": {
+                backgroundColor: (theme) => theme.palette.primary.main,
+                color: "white",
+                "&:hover": {
+                  backgroundColor: (theme) => theme.palette.primary.main,
+                },
+                boxShadow: "2px 2px 4px #e0e0e0",
+                fontWeight: "bold",
+                padding: {
+                  xs: "4px",
+                  sm: "4px 8px",
+                  md: "4px 12px",
+                  lg: "4px 16px",
+                },
+              },
+            }}
+          >
+            Others
+          </ToggleButton>
+        </ToggleButtonGroup>
+        <Box
+          sx={{
+            marginTop: "50px",
+            marginBottom: "20px",
+            display: "flex",
+            flexWrap: "wrap",
+            gap: { xs: "12px", sm: "16px", md: "20px", lg: "30px" },
+          }}
+        >
+          {techData[alignment].map((tech) => (
+            <div key={tech.name} style={{ textAlign: "center" }}>
+              <Box
+                component="img"
+                src={tech.img}
+                alt={tech.name}
+                sx={{
+                  width: { xs: 60, sm: 40, md: 80, lg: 100 },
+                  height: { xs: 60, sm: 40, md: 80, lg: 100 },
+                  objectFit: "contain",
+                }}
+              />
+              <Typography
+                component="p"
+                sx={{
+                  marginTop: "10px",
+                  fontSize: { xs: "12px", sm: "12px", md: "16px", lg: "18px" },
+                }}
+              >
+                {tech.name}
+              </Typography>
+            </div>
+          ))}
+        </Box>
+      </Box>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
         }}
       >
         <Typography
           variant="h4"
           gutterBottom
-          sx={{ fontWeight: "bold", marginBottom: "40px" }}
+          sx={{
+            marginBottom: "20px",
+            color: (theme) => theme.palette.primary.main,
+            fontWeight: "500",
+          }}
         >
           Projects
         </Typography>
         {projects.map((project, index) => (
-          <Paper
+          <Grid
+            container
             key={index}
-            sx={{ display: "flex", gap: "20px", padding: "24px" }}
+            sx={{
+              display: "flex",
+              backgroundColor: (theme) => theme.palette.background.paper,
+              borderRadius: "20px",
+              flexWrap: "wrap",
+              "&:hover": {
+                transform: "scale(1.02)",
+                transition: "transform 0.3s ease-in-out",
+                borderTop: (theme) =>
+                  `1px solid ${theme.palette.text.secondary}`,
+              },
+            }}
           >
-            <Box sx={{ width: "400px" }}>
+            <Grid
+              item
+              size={{ xs: 12, md: 4 }}
+              sx={{
+                padding: "12px",
+                width: "100%",
+              }}
+            >
               <img
                 src={project.image}
                 alt={project.title}
-                style={{ width: "400px" }}
+                style={{
+                  // height: "auto",
+                  width: "100%",
+                  aspectRatio: "2 / 1",
+                  objectFit: "cover",
+                  borderRadius: "12px",
+                }}
               />
-              <Box>
-                <Button
-                  variant="contained"
-                  href={project.link}
-                  target="_blank"
-                  endIcon={<OpenInNewIcon />}
+            </Grid>
+            <Grid item size={{ xs: 12, md: 8 }} sx={{ padding: "20px" }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  flexWrap: "wrap",
+                }}
+              >
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  sx={{ fontWeight: "500" }}
                 >
-                  live
-                </Button>
+                  {project.title}
+                </Typography>
+                <IconButton href={project.link} target="_blank">
+                  <OpenInNewIcon />
+                </IconButton>
               </Box>
-            </Box>
-            <Box>
-              <Typography gutterBottom variant="h4" sx={{ fontWeight: "bold" }}>
-                {project.title}
-              </Typography>
               <Box
                 sx={{
                   display: "flex",
@@ -81,12 +288,12 @@ const PorjectsContent = () => {
                   <Typography key={i}>{tech}</Typography>
                 ))}
               </Box>
-              <Typography variant="h6">{project.description}</Typography>
-            </Box>
-          </Paper>
+              <Typography variant="body1">{project.description}</Typography>
+            </Grid>
+          </Grid>
         ))}
-      </Grid>
-    </Grid>
+      </Box>
+    </Box>
   );
 };
 

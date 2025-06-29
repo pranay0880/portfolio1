@@ -1,9 +1,11 @@
-import { Box, Grid2 as Grid, Typography } from "@mui/material";
-import React from "react";
-import Pradeep from "../../assets/images/PradeepImage.png";
+import { Box, Typography, Grid } from "@mui/material";
+import React, { useState } from "react";
+import PradeepPaint from "../../assets/images/PradeepWaterPaint.png";
+import PradeepReal from "../../assets/images/PradeepGhibli.png";
 import "../../styles/HomePage.css";
 
 const HomeContent = () => {
+  const [isHovered, setIsHovered] = useState(false);
   return (
     <Grid
       container
@@ -11,18 +13,18 @@ const HomeContent = () => {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        padding: "40px",
+        padding: {
+          lg: "12px 80px",
+          md: "40px 40px",
+          sm: "40px 20px",
+          xs: "72px 20px",
+        },
         flexWrap: "wrap",
       }}
     >
-      <div className="particles">
-        {Array.from({ length: 13 }).map((_, index) => (
-          <span key={index} className="particle"></span>
-        ))}
-      </div>
       <Grid
         item
-        size={{ xs: 12, md: 6 }}
+        size={{ xs: 12, md: 7 }}
         sx={{
           display: "flex",
           justifyContent: "center",
@@ -32,26 +34,65 @@ const HomeContent = () => {
         }}
       >
         <Box>
-          <Typography gutterBottom variant="h4">
+          <Typography
+            gutterBottom
+            variant="h4"
+            sx={{
+              fontSize: { lg: "32px", md: "24px", sm: "20px", xs: "16px" },
+            }}
+          >
             Hello, i'm
           </Typography>
           <Typography
-            gutterBottom
-            variant="h3"
+            variant="h1"
             fontWeight={"bold"}
-            color="#008AD8"
+            color={(theme) => theme.palette.primary.main}
+            sx={{
+              fontFamily: `"Iceberg", "sans-serif"`,
+              fontWeight: 400,
+              fontSize: { lg: "80px", md: "72px", sm: "56px", xs: "48px" },
+            }}
           >
             Pradeep Dasari
           </Typography>
-          <Typography gutterBottom variant="h6">
-            Full Stack Developer with a passion for building dynamic,
-            user-friendly web applications
+
+          <Typography
+            gutterBottom
+            variant="h5"
+            sx={{
+              marginTop: "20px",
+              color: (theme) => theme.palette.text.secondary,
+              fontSize: { lg: "36px", md: "30px", sm: "20px", xs: "20px" },
+            }}
+          >
+            <Typography
+              variant="h5"
+              component={"sapn"}
+              sx={{ fontWeight: "bold" }}
+            >
+              {" "}
+              Full Stack Developer{" "}
+            </Typography>
+            passionate about crafting intuitive, performant, and scalable web
+            applications.
+          </Typography>
+          <Typography
+            gutterBottom
+            variant="h5"
+            sx={{
+              marginTop: "10px",
+              color: (theme) => theme.palette.text.secondary,
+            }}
+          >
+            {" "}
+            I specialize in turning ideas into responsive digital experiences
+            using modern technologies. Let’s build something amazing together.
           </Typography>
         </Box>
       </Grid>
       <Grid
         item
-        size={{ xs: 12, md: 6 }}
+        size={{ xs: 12, md: 5 }}
         sx={{
           display: "flex",
           justifyContent: "center",
@@ -59,17 +100,21 @@ const HomeContent = () => {
           height: "400px",
         }}
       >
-        <div className="image-container">
+        <div
+          style={{
+            display: "inline-block",
+            cursor: isHovered ? "url('/cursors/smile.cur'), auto" : "default",
+          }}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
           <img
-            src={Pradeep}
-            alt="pradeep Image"
+            src={isHovered ? PradeepPaint : PradeepReal}
+            alt="pradeep water paint pic"
             style={{
-              height: "300px",
+              height: "400px",
               width: "auto",
-              clipPath: "circle(50%)",
-              backgroundColor: "#ffffff",
             }}
-            className="rounded-image"
           />
         </div>
       </Grid>
