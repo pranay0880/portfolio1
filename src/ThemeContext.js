@@ -20,14 +20,28 @@ export const CustomThemeProvider = ({ children }) => {
           ...(mode === "light"
             ? {
                 primary: { main: "#e72a19" },
-                background: { default: "#fff", paper: "#f0f0f0" },
-                text: { primary: "#000", secondary: "#242424" },
+                background: {
+                  default: "#fff",
+                  paper: "#f0f0f0",
+                },
+                text: {
+                  primary: "#000",
+                  secondary: "#242424",
+                  border: "#24242450",
+                },
                 grids: { main: "#f7f7f7" },
               }
             : {
                 primary: { main: "#FF4433" },
-                background: { default: "#121212", paper: "#1e1e1e" },
-                text: { primary: "#fff", secondary: "#ccc" },
+                background: {
+                  default: "#121212",
+                  paper: "#1e1e1e",
+                },
+                text: {
+                  primary: "#fff",
+                  secondary: "#ccc",
+                  border: "#cccccc50",
+                },
                 grids: { main: "#0d0d0d" },
               }),
         },

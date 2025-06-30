@@ -14,7 +14,7 @@ const HomeContent = () => {
         justifyContent: "space-between",
         alignItems: "center",
         padding: {
-          lg: "12px 80px",
+          lg: "80px 80px",
           md: "40px 40px",
           sm: "40px 20px",
           xs: "72px 20px",
@@ -29,7 +29,7 @@ const HomeContent = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          height: "500px",
+          height: { lg: "70vh", md: "75vh" },
           marginTop: "40px",
         }}
       >
@@ -38,7 +38,7 @@ const HomeContent = () => {
             gutterBottom
             variant="h4"
             sx={{
-              fontSize: { lg: "32px", md: "24px", sm: "20px", xs: "16px" },
+              fontSize: { lg: "32px", md: "30px", sm: "20px", xs: "16px" },
             }}
           >
             Hello, i'm
@@ -62,13 +62,16 @@ const HomeContent = () => {
             sx={{
               marginTop: "20px",
               color: (theme) => theme.palette.text.secondary,
-              fontSize: { lg: "36px", md: "30px", sm: "20px", xs: "20px" },
+              fontSize: { lg: "24px", md: "24px", sm: "20px", xs: "20px" },
             }}
           >
             <Typography
               variant="h5"
               component={"sapn"}
-              sx={{ fontWeight: "bold" }}
+              sx={{
+                fontWeight: "bold",
+                fontSize: { lg: "24px", md: "24px", sm: "20px", xs: "20px" },
+              }}
             >
               {" "}
               Full Stack Developer{" "}
@@ -82,6 +85,7 @@ const HomeContent = () => {
             sx={{
               marginTop: "10px",
               color: (theme) => theme.palette.text.secondary,
+              fontSize: { lg: "24px", md: "20px", sm: "16px", xs: "16px" },
             }}
           >
             {" "}

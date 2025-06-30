@@ -23,7 +23,7 @@ const AboutContent = () => {
     <Box
       sx={{
         padding: {
-          lg: "12px 80px",
+          lg: "62px 80px 0px 80px",
           md: "40px 40px",
           sm: "40px 20px",
           xs: "72px 20px",
@@ -45,7 +45,7 @@ const AboutContent = () => {
       <Typography
         gutterBottom
         variant="h5"
-        sx={{ fontSize: { lg: "30px", md: "28px", sm: "20px", xs: "20px" } }}
+        sx={{ fontSize: { lg: "20px", md: "18px", sm: "16px", xs: "16px" } }}
       >
         Hi, I’m Pradeep Dasari — a Full Stack Developer and UI Designer with a
         keen eye for clean design and smooth user experiences.
@@ -56,7 +56,7 @@ const AboutContent = () => {
         sx={{
           color: (theme) => theme.palette.text.secondary,
           mb: 2,
-          fontSize: { lg: "30px", md: "28px", sm: "20px", xs: "20px" },
+          fontSize: { lg: "20px", md: "18px", sm: "16px", xs: "16px" },
         }}
       >
         Over the past{" "}
@@ -77,7 +77,7 @@ const AboutContent = () => {
       </Typography>
       <div>
         <Typography
-          sx={{ fontSize: { lg: "30px", md: "28px", sm: "20px", xs: "20px" } }}
+          sx={{ fontSize: { lg: "20px", md: "18px", sm: "16px", xs: "16px" } }}
           variant="h5"
         >
           What I Do Best 🧑‍💻:
@@ -100,39 +100,40 @@ const AboutContent = () => {
           ))}
         </List>
       </div>
-      <Typography
+      {/* <Typography
         variant="h5"
         sx={{
           color: (theme) => theme.palette.text.secondary,
-          fontSize: { lg: "30px", md: "28px", sm: "20px", xs: "20px" },
+          fontSize: { lg: "20px", md: "18px", sm: "16px", xs: "16px" },
         }}
       >
         My approach combines creativity with technical precision to deliver
         results that are both functional and beautiful. Whether I’m coding a
         dynamic interface, debugging a server issue, or sketching wireframes, I
         enjoy bringing digital ideas to life.
-      </Typography>
+      </Typography> */}
       <Typography
         variant="h5"
         sx={{
           mt: 2,
           color: (theme) => theme.palette.text.secondary,
-          fontSize: { lg: "30px", md: "28px", sm: "20px", xs: "20px" },
+          fontSize: { lg: "20px", md: "18px", sm: "16px", xs: "16px" },
         }}
       >
-        Always curious🤔, Always building✍️.
+        Always curious🤔, Always building✍️. Let’s collaborate and create
+        impactful web experiences.
       </Typography>
-      <Typography
+      {/* <Typography
         gutterBottom
         variant="h5"
         sx={{
           mt: 3,
           color: (theme) => theme.palette.text.secondary,
-          fontSize: { lg: "30px", md: "28px", sm: "20px", xs: "20px" },
+          fontSize: { lg: "20px", md: "18px", sm: "16px", xs: "16px" },
         }}
       >
         Let’s collaborate and create impactful web experiences.
-      </Typography>
+      </Typography> */}
       <Grid
         container
         sx={{
@@ -145,13 +146,20 @@ const AboutContent = () => {
         <Grid
           item
           size={{ xs: 12, md: 7 }}
-          sx={{ padding: { lg: "40px", md: "30px", sm: "10px", xs: "0px" } }}
+          sx={{
+            padding: {
+              lg: "40px",
+              md: "30px",
+              sm: "10px",
+              xs: "0px",
+            },
+          }}
         >
           <Typography
             variant="h4"
             gutterBottom
             sx={{
-              fontSize: { lg: "48px", md: "40px", sm: "32px", xs: "30px" },
+              fontSize: { lg: "32px", md: "28px", sm: "24px", xs: "24px" },
             }}
           >
             Career Experience
@@ -164,12 +172,19 @@ const AboutContent = () => {
               <Box
                 className="timeline-content"
                 sx={{
-                  backgroundColor: (theme) => theme.palette.background.paper,
+                  // backgroundColor: (theme) => theme.palette.background.paper,
+                  border: (theme) => `1px solid ${theme.palette.text.border}`,
                 }}
               >
-                <h1 className="timeline-date">{item.date}</h1>
-                <h3 className="timeline-position">{item.title}</h3>
-                <h4 className="timeline-company">{item.company}</h4>
+                <Typography variant="body2" className="timeline-date">
+                  {item.date}
+                </Typography>
+                <Typography variant="h6" className="timeline-position">
+                  {item.title}
+                </Typography>
+                <Typography variant="body2" className="timeline-company">
+                  {item.company}
+                </Typography>
                 <ul>
                   {item.description.map((desc, i) => (
                     <li key={i}>{desc}</li>

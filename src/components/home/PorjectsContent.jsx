@@ -5,6 +5,8 @@ import {
   ToggleButton,
   Grid,
   IconButton,
+  Chip,
+  Avatar,
 } from "@mui/material";
 import React, { useState } from "react";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
@@ -14,18 +16,36 @@ import { projects, techData } from "../helpers/CommonHelpers";
 const PorjectsContent = () => {
   const [alignment, setAlignment] = useState("frontend");
 
-  const handleChange = (event, newAlignment) => {
-    if (newAlignment !== null) {
-      setAlignment(newAlignment);
-    }
-  };
+  const allTech = [
+    ...techData.frontend,
+    ...techData.backend,
+    ...techData.database,
+    ...techData.others,
+  ];
+
+  const allDuplicatedTech = [...allTech, ...allTech];
+
+  const renderScrollRow = (data, reverse = false) => (
+    <div className="chip-scrolling-wrapper">
+      <div className={`chip-scrolling-track ${reverse ? "reverse" : ""}`}>
+        {data.map((tech, index) => (
+          <Chip
+            key={`${tech.name}-${index}`}
+            label={tech.name}
+            avatar={<Avatar src={tech.img} />}
+            variant="outlined"
+          />
+        ))}
+      </div>
+    </div>
+  );
   return (
     <Box
       sx={{
         padding: {
-          lg: "12px 80px",
-          md: "40px 40px",
-          sm: "40px 20px",
+          lg: "60px 80px",
+          md: "60px 40px",
+          sm: "60px 20px",
           xs: "72px 20px",
         },
       }}
@@ -35,12 +55,11 @@ const PorjectsContent = () => {
         variant="h4"
         color={(theme) => theme.palette.primary.main}
         fontWeight="500"
-        marginTop={6}
-        sx={{ fontSize: { lg: "48px", md: "40px", sm: "32px", xs: "30px" } }}
+        sx={{ fontSize: { lg: "40px", md: "36px", sm: "32px", xs: "30px" } }}
       >
         Skills:
       </Typography>
-      <Box
+      {/* <Box
         sx={{
           display: "flex",
           flexDirection: "column",
@@ -201,6 +220,11 @@ const PorjectsContent = () => {
             </div>
           ))}
         </Box>
+      </Box> */}
+
+      <Box>
+        {renderScrollRow(allDuplicatedTech, false)}
+        {renderScrollRow(allDuplicatedTech, true)}
       </Box>
       <Box
         sx={{
@@ -225,14 +249,15 @@ const PorjectsContent = () => {
             key={index}
             sx={{
               display: "flex",
-              backgroundColor: (theme) => theme.palette.background.paper,
-              borderRadius: "20px",
+              // backgroundColor: (theme) => theme.palette.background.paper,
+              border: (theme) => `1px solid ${theme.palette.text.border}`,
+              borderRadius: "10px",
               flexWrap: "wrap",
               "&:hover": {
                 transform: "scale(1.02)",
                 transition: "transform 0.3s ease-in-out",
-                borderTop: (theme) =>
-                  `1px solid ${theme.palette.text.secondary}`,
+                borderLeft: (theme) =>
+                  `4px solid ${theme.palette.text.secondary}`,
               },
             }}
           >

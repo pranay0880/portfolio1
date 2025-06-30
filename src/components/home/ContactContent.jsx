@@ -3,6 +3,7 @@ import {
   Button,
   Grid,
   IconButton,
+  Modal,
   TextField,
   Typography,
 } from "@mui/material";
@@ -18,6 +19,7 @@ const ContactContent = () => {
     subject: "",
     message: "",
   });
+  const [showThankYouModal, setShowThankYouModal] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -38,7 +40,10 @@ const ContactContent = () => {
       );
 
       if (result.status === 200) {
-        alert("Your message has been sent successfully!");
+        setShowThankYouModal(true);
+        setTimeout(() => {
+          setShowThankYouModal(false);
+        }, 3000);
         setFormData({
           name: "",
           email: "",
@@ -56,7 +61,7 @@ const ContactContent = () => {
     <Box
       sx={{
         padding: {
-          lg: "20px 80px",
+          lg: "60px 80px",
           md: "20px 40px",
           sm: "20px 20px",
           xs: "20px 20px",
@@ -69,8 +74,11 @@ const ContactContent = () => {
       <Typography
         variant="h6"
         color={(theme) => theme.palette.text.secondary}
-        sx={{ textWrap: "balance" }}
         gutterBottom
+        sx={{
+          textWrap: "balance",
+          fontSize: { lg: "20px", md: "18px", sm: "16px", xs: "16px" },
+        }}
       >
         "I’m always open to exciting opportunities, new projects, or just a good
         conversation. My inbox is always open — whether you’ve got a question,
@@ -224,6 +232,34 @@ const ContactContent = () => {
           </Box>
         </Grid>
       </Grid>
+      <Modal
+        open={showThankYouModal}
+        onClose={() => setShowThankYouModal(false)}
+        aria-labelledby="thank-you-title"
+        aria-describedby="thank-you-description"
+      >
+        <Box
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: 300,
+            bgcolor: "background.paper",
+            borderRadius: 2,
+            boxShadow: 24,
+            p: 4,
+            textAlign: "center",
+          }}
+        >
+          <Typography id="thank-you-title" variant="h6" component="h2">
+            🙏 Thank You!
+          </Typography>
+          <Typography id="thank-you-description" sx={{ mt: 2 }}>
+            Your message has been sent successfully. 😊
+          </Typography>
+        </Box>
+      </Modal>
     </Box>
   );
 };

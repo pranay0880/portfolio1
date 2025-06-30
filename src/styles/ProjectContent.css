@@ -46,7 +46,7 @@
 
 .timeline-date {
   font-size: 14px;
-  color: #acaaff;
+  /* color: #acaaff; */
   font-weight: bold;
 }
 
@@ -59,7 +59,7 @@
 .timeline-company {
   font-size: 16px;
   font-weight: bold;
-  color: #1bffc2;
+  /* color: #1bffc2; */
 }
 
 .timeline-content ul {
@@ -143,4 +143,44 @@
   margin: auto;
   transform: rotateX(90deg) translateZ(-40px);
   filter: blur(12px);
+}
+
+/* skills  */
+
+.chip-scrolling-wrapper {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.chip-scrolling-track {
+  display: inline-flex;
+  animation: scrollLeft 40s linear infinite;
+  gap: 12px;
+}
+
+.chip-scrolling-track.reverse {
+  animation: scrollRight 40s linear infinite;
+}
+
+.chip-scrolling-wrapper:hover .chip-scrolling-track {
+  animation-play-state: paused;
+}
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scrollRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
 }
