@@ -172,7 +172,7 @@ const AboutContent = () => {
               <Box
                 className="timeline-content"
                 sx={{
-                  // backgroundColor: (theme) => theme.palette.background.paper,
+                  backgroundColor: (theme) => theme.palette.background.default,
                   border: (theme) => `1px solid ${theme.palette.text.border}`,
                 }}
               >

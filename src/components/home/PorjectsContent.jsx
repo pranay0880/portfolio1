@@ -34,6 +34,9 @@ const PorjectsContent = () => {
             label={tech.name}
             avatar={<Avatar src={tech.img} />}
             variant="outlined"
+            sx={{
+              backgroundColor: (theme) => theme.palette.background.default,
+            }}
           />
         ))}
       </div>
@@ -249,7 +252,7 @@ const PorjectsContent = () => {
             key={index}
             sx={{
               display: "flex",
-              // backgroundColor: (theme) => theme.palette.background.paper,
+              backgroundColor: (theme) => theme.palette.background.default,
               border: (theme) => `1px solid ${theme.palette.text.border}`,
               borderRadius: "10px",
               flexWrap: "wrap",

@@ -104,7 +104,8 @@ const ContactContent = () => {
               justifyContent: "space-between",
               alignItems: "center",
               marginBottom: "20px",
-              border: (theme) => `1px solid ${theme.palette.background.paper}`,
+              border: (theme) => `1px solid ${theme.palette.text.border}`,
+              backgroundColor: (theme) => theme.palette.background.default,
               borderRadius: "4px",
             }}
           >
@@ -128,7 +129,8 @@ const ContactContent = () => {
               padding: "12px",
               height: "300px",
               borderRadius: "4px",
-              border: (theme) => `1px solid ${theme.palette.background.paper}`,
+              border: (theme) => `1px solid ${theme.palette.text.border}`,
+              backgroundColor: (theme) => theme.palette.background.default,
             }}
           >
             <iframe
@@ -167,7 +169,11 @@ const ContactContent = () => {
                   fullWidth
                   value={formData.name}
                   onChange={handleInputChange}
-                  sx={{ marginBottom: "12px" }}
+                  sx={{
+                    marginBottom: "12px",
+                    backgroundColor: (theme) =>
+                      theme.palette.background.default,
+                  }}
                 />
 
                 <TextField
@@ -178,7 +184,11 @@ const ContactContent = () => {
                   fullWidth
                   value={formData.email}
                   onChange={handleInputChange}
-                  sx={{ marginBottom: "12px" }}
+                  sx={{
+                    marginBottom: "12px",
+                    backgroundColor: (theme) =>
+                      theme.palette.background.default,
+                  }}
                 />
 
                 <TextField
@@ -189,7 +199,11 @@ const ContactContent = () => {
                   fullWidth
                   value={formData.subject}
                   onChange={handleInputChange}
-                  sx={{ marginBottom: "12px" }}
+                  sx={{
+                    marginBottom: "12px",
+                    backgroundColor: (theme) =>
+                      theme.palette.background.default,
+                  }}
                 />
 
                 <TextField
@@ -202,7 +216,11 @@ const ContactContent = () => {
                   minRows={3}
                   value={formData.message}
                   onChange={handleInputChange}
-                  sx={{ marginBottom: "12px" }}
+                  sx={{
+                    marginBottom: "12px",
+                    backgroundColor: (theme) =>
+                      theme.palette.background.default,
+                  }}
                 />
 
                 <Box

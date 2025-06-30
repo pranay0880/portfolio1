@@ -42,7 +42,7 @@ export const CustomThemeProvider = ({ children }) => {
                   secondary: "#ccc",
                   border: "#cccccc50",
                 },
-                grids: { main: "#0d0d0d" },
+                grids: { main: "#1f1f1f" },
               }),
         },
         typography: {
