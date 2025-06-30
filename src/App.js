@@ -33,6 +33,19 @@ function App() {
           backgroundColor: theme.palette.text.primary,
         }}
         showSystemCursor={false}
+        clickables={[
+          "a",
+          "button",
+          "input",
+          "textarea",
+          "select",
+          "label",
+          '[role="button"]',
+          "[tabindex]",
+          ".MuiButton-root",
+          ".MuiIconButton-root",
+          ".MuiTextField-root",
+        ]}
       />
       <Routes>
         <Route path="/" element={<Home />} />
