@@ -1,20 +1,20 @@
 import {
   Typography,
   Box,
-  ToggleButtonGroup,
-  ToggleButton,
+  // ToggleButtonGroup,
+  // ToggleButton,
   Grid,
   IconButton,
   Chip,
   Avatar,
 } from "@mui/material";
-import React, { useState } from "react";
+import React from "react";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import "../../styles/ProjectContent.css";
 import { projects, techData } from "../helpers/CommonHelpers";
 
 const PorjectsContent = () => {
-  const [alignment, setAlignment] = useState("frontend");
+  // const [alignment, setAlignment] = useState("frontend");
 
   const allTech = [
     ...techData.frontend,

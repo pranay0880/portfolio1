@@ -151,6 +151,7 @@ const Squares = ({
     hoverFillColor,
     squareSize,
     theme.palette.mode,
+    effectiveBorderColor,
   ]);
 
   return (

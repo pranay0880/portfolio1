@@ -33,10 +33,10 @@ const ContactContent = () => {
     e.preventDefault();
     try {
       const result = await emailjs.send(
-        "service_8pewrcg", //EmailJS service ID
-        "template_nhaz55o", //EmailJS template ID
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
         formData,
-        "ztogn27NqArmtf6UK" //EmailJS public key
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY
       );
 
       if (result.status === 200) {

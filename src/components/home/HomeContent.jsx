@@ -1,4 +1,4 @@
-import { Box, Typography, Grid } from "@mui/material";
+import { Box, Typography, Grid, Button } from "@mui/material";
 import React, { useState } from "react";
 import PradeepPaint from "../../assets/images/PradeepWaterPaint.png";
 import PradeepReal from "../../assets/images/PradeepGhibli.png";
@@ -92,6 +92,13 @@ const HomeContent = () => {
             I specialize in turning ideas into responsive digital experiences
             using modern technologies. Let’s build something amazing together.
           </Typography>
+          <a
+            href={process.env.REACT_APP_RESUME_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button variant="contained">Resume</Button>
+          </a>
         </Box>
       </Grid>
       <Grid
